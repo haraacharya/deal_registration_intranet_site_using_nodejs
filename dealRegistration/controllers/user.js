@@ -32,7 +32,7 @@ exports.signin = (req, res) => {
         }
         //if a user is found, make sure the email and password match
         //create authentication method in signup
-        if (!user.authenticate) {
+        if (!user.authenticate(password)) {
             return res.status(401).json({
                 error: "Email and password doesn't match."
             })
