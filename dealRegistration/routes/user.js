@@ -1,16 +1,16 @@
-const express = require('express');
-const router = express.Router();
+const express = require("express");
+const router = express.Router()
 
 
-const { signup, signin} = require("../controllers/user");
-const { userSignupValidator } = require("../validator/index")
+const { requireSignin, isAuth, isAdmin } = require('../controllers/auth')
+const { userById } = require('../controllers/user')
 
-router.post("/signup", userSignupValidator, signup);
-router.post("/signin", signin)
-
-router.get("/", (req, res) => {
-    res.send("deal reg site")
-});
-
+//test route
+router.get("/secret/:userId", requireSignin, isAuth, (req, res) => {
+    res.json({
+        user: req.profile
+    })
+})
+router.param("userId", userById);
 
 module.exports = router;
