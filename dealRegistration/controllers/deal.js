@@ -1,10 +1,10 @@
-const Dealregistration = require('../models/dealregistration');
+const Deal = require('../models/deal');
 const { errorHandler } = require('../helpers/dbErrorHandler')
 
 exports.create = (req, res) => {
-    const dealregistration = new Dealregistration(req.body);
+    const deal = new Deal(req.body);
     console.log(req.body)
-    dealregistration.save((err, data) => {
+    deal.save((err, data) => {
 
         if (err) {
             return res.status(400).json({

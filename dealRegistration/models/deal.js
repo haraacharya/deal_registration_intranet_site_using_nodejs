@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema
 
-const dealregistrationSchema = new mongoose.Schema({
+const dealSchema = new mongoose.Schema({
     geo: {
         type: String,
         required: true
@@ -12,7 +12,7 @@ const dealregistrationSchema = new mongoose.Schema({
     },
     state: {
         type: String,
-        //required: true
+        required: true
     },
     client_name: {
         type: String,
@@ -39,4 +39,4 @@ const dealregistrationSchema = new mongoose.Schema({
     { timestamps: true}
 );
 
-module.exports = mongoose.model("Dealregistration", dealregistrationSchema)
+module.exports = mongoose.model("Deal", dealSchema)

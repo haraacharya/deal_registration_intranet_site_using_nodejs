@@ -9,7 +9,8 @@ require('dotenv').config()
 //import routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
-const dealregistrationRoutes = require('./routes/dealregistration');
+const dealRoutes = require('./routes/deal');
+const categoryRoutes = require('./routes/category')
 
 
 // app
@@ -30,7 +31,8 @@ app.use(cookieParser())
 //routes middleware
 app.use("/api", authRoutes)
 app.use("/api", userRoutes)
-app.use("/api", dealregistrationRoutes)
+app.use("/api", dealRoutes)
+app.use("/api", categoryRoutes)
 
 
 const port = process.env.PORT || 8000
