@@ -8,7 +8,7 @@ exports.create = (req, res) => {
 
         if (err) {
             return res.status(400).json({
-                error: "couldn't be created"
+                error: errorHandler(err)
             })
             
         }

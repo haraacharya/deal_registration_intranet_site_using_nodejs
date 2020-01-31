@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { ObjectId } = mongoose.Schema
+
 
 const dealSchema = new mongoose.Schema({
     geo: {
@@ -8,11 +8,11 @@ const dealSchema = new mongoose.Schema({
     },
     country: {
         type: String,
-        //required: true
+        required: true
     },
     state: {
         type: String,
-        required: true
+        //required: true
     },
     client_name: {
         type: String,
@@ -31,9 +31,8 @@ const dealSchema = new mongoose.Schema({
         //required: true
     },
     user: {
-        type: ObjectId,
-        ref: 'User',
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 },
     { timestamps: true}
