@@ -16,7 +16,7 @@ const dealSchema = new mongoose.Schema({
     },
     client_name: {
         type: String,
-        //required: true
+        // required: true
     },
     client_address: {
         type: String,
