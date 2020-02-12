@@ -17,14 +17,27 @@ const Signup = () => {
         setValues({...values, error:false, [name]: event.target.value})            
     }
     
-    const signup = (usertype, name, email, password) => {
+    // const signup = (usertype, name, email, password) => {
+    const signup = (user) => {
         console.log(usertype, name, email, password)
+        fetch(`${API}/signup`, {
+            method: "POST",
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": 'application/json'
+            },
+            // body: JSON.stringify(usertype, name, email, password )
+            body: JSON.stringify(user)
+        })
+
     };
 
     const clickSubmit = (event) => {
         event.preventDefault();
-        signup(usertype, name, email, password);
+        // signup(usertype, name, email, password);
+        signup({usertype, name, email, password})
     }
+    
     const SignUpFrom = () => (
        <div className="container col-md-8 offset-md-2">
             <form>
