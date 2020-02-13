@@ -1,5 +1,5 @@
 exports.userSignupValidator = (req, res, next) => {
-    req.check('userType', 'Please select userType').notEmpty()
+    req.check('usertype').not().isEmpty().withMessage('Please select userType')
     req.check('email', 'Email must contain @')
         .matches(/.+\@.+\..+/)
     req.check('email', 'Email must be 4 to 50 characters long')
@@ -14,6 +14,7 @@ exports.userSignupValidator = (req, res, next) => {
 
     const errors = req.validationErrors();
     if (errors) {
+        console.log(errors)
         const firstError = errors.map(error => error.msg)[0];
         return res.status(400).json({error: firstError})
     }
